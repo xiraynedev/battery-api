@@ -28,7 +28,7 @@ if (navigator.getBattery) {
     });
     function updateChargingInfo() {
       const chargingTimeSpan = document.querySelector("#charging-time-change");
-      chargingTimeSpan.textContent = `${battery.chargingTime / 3600} hours to full charge.`;
+      chargingTimeSpan.textContent = `${(battery.chargingTime / 3600).toFixed(1)} hours to full charge.`;
     }
 
     battery.addEventListener("dischargingtimechange", () => {
@@ -41,7 +41,7 @@ if (navigator.getBattery) {
       if (battery.dischargingTime === Infinity) {
         dischargingTimeSpan.textContent = "Fully charged";
       } else {
-        dischargingTimeSpan.textContent = `${battery.dischargingTime / 3600} hours to discharge`;
+        dischargingTimeSpan.textContent = `${(battery.dischargingTime / 3600).toFixed(1)} hours to discharge`;
       }
     }
   });
